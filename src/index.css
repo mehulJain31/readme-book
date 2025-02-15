@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  color: #042605;
 }
 
 code {
@@ -12,31 +14,475 @@ code {
     monospace;
 }
 
+.header {
+  background-color: #042605;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.footer {
+  background-color: #042605;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: white;
+  padding: 80px 0;  /* Added padding to account for header and footer */
 }
 
 .club-button {
   padding: 15px 30px;
   font-size: 18px;
-  background-color: #007bff;
+  background-color: #042605;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .club-button:hover {
-  background-color: #0056b3;
+  background-color: #0a3b0a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(4, 38, 5, 0.2);
 }
 
 .clubs-container {
+  padding: 100px 20px;  /* Increased padding to account for header and footer */
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #042605;
+  min-height: calc(100vh - 200px); /* Account for header and footer */
+}
+
+.filter-section {
+  margin: 20px 0;
+}
+
+.genre-dropdown {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 2px solid #042605;
+  border-radius: 4px;
+  background-color: white;
+  color: #042605;
+  cursor: pointer;
+  min-width: 250px;
+}
+
+.genre-dropdown:focus {
+  outline: none;
+  border-color: #042605;
+  box-shadow: 0 0 0 2px rgba(4, 38, 5, 0.1);
+}
+
+.genre-dropdown optgroup {
+  font-weight: bold;
+  color: #042605;
+  background-color: white;
+}
+
+.genre-dropdown option {
+  padding: 8px;
+  color: #042605;
+  background-color: white;
+}
+
+.genre-dropdown option:checked {
+  background-color: #007bff;
+  color: white;
+}
+
+.clubs-list {
+  margin-top: 20px;
+}
+
+.genre-clubs-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.genre-clubs-container h1 {
+  color: #042605;
+  margin-bottom: 30px;
+}
+
+.genre-clubs-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.locations-container {
+  padding: 100px 20px;  /* Increased padding to account for header and footer */
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: calc(100vh - 200px); /* Account for header and footer */
+}
+
+.locations-container h1 {
+  color: #042605;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.location-button {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 2/1;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.location-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(4, 38, 5, 0.9));
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.location-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.location-button:hover .location-image {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .location-button {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.existing-club-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0 30px;
+  text-align: center;
+  border: 2px solid #042605;
+}
+
+.existing-club-section h2 {
+  color: #042605;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.existing-club-link {
+  display: inline-block;
+  color: #042605;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: 2px solid #042605;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.existing-club-link:hover {
+  background-color: #042605;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.home-options {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.brand-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #042605;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.option-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #042605;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(4, 38, 5, 0.1);
+}
+
+.option-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #042605;
+}
+
+.option-card p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #2a4c2b;
+}
+
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+  }
+  
+  .option-card {
+    padding: 30px;
+  }
+  
+  .option-card h2 {
+    font-size: 1.75rem;
+  }
+  
+  .brand-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+}
+
+.signup-container {
+  padding: 100px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+}
+
+.signup-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 2px solid #042605;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #042605;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #042605;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #042605;
+  box-shadow: 0 0 0 2px rgba(4, 38, 5, 0.1);
+}
+
+.signup-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #042605;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: #0a3b0a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(4, 38, 5, 0.2);
+}
+
+.error-message {
+  color: #dc3545;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #fde8e8;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: white;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border: 2px solid #042605;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.auth-box h1 {
+  text-align: center;
+  color: #042605;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #042605;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  color: #042605;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.auth-tab.active {
+  background-color: #042605;
+  color: white;
+}
+
+.auth-tab:hover:not(.active) {
+  background-color: rgba(4, 38, 5, 0.1);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #042605;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #0a3b0a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(4, 38, 5, 0.2);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  color: white;
+  font-size: 1rem;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }

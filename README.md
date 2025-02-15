@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+BOOKWORM
+========
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A book club management application by Mehul Jain.
 
-## Available Scripts
+GETTING STARTED
+--------------
 
-In the project directory, you can run:
+Prerequisites:
+- Node.js
+- MongoDB
+- Yarn
 
-### `yarn start`
+Installation:
+1. Clone the repository
+2. Install dependencies:
+   yarn install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Database Setup:
+1. Make sure MongoDB is installed on your system
+2. Start MongoDB:
+   mongosh
+3. The application will automatically create a database named 'bookworm'
+4. MongoDB URI: mongodb://127.0.0.1:27017/bookworm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Running the Application:
+1. Start the backend server:
+   yarn server
+   The server will run on http://localhost:3001
 
-### `yarn test`
+2. In a new terminal, start the React frontend:
+   yarn start
+   The application will open in your browser at http://localhost:3000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Development:
+- Frontend: React application runs on port 3000
+- Backend: Express server runs on port 3001
+- Database: MongoDB runs on port 27017
 
-### `yarn build`
+Testing the Setup:
+1. The server is running correctly if you can access:
+   http://localhost:3001/api/test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. MongoDB is connected if you see "MongoDB Connected Successfully" in the server console
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. The React app is working if you see the login page at:
+   http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dependencies:
+- React
+- React Router DOM
+- Express
+- MongoDB
+- Mongoose
+- bcryptjs
+- cors
+- dotenv
 
-### `yarn eject`
+Project Structure:
+src/
+  ├── components/
+  │   ├── Home.js
+  │   ├── Login.js
+  │   ├── Signup.js
+  │   ├── Locations.js
+  │   └── Clubs.js
+  ├── services/
+  │   ├── userService.js
+  │   └── bookClubService.js
+  ├── utils/
+  │   └── logger.js
+  ├── App.js
+  └── index.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+server/
+  ├── routes/
+  │   ├── userRoutes.js
+  │   └── bookClubRoutes.js
+  └── models/
+      ├── User.js
+      └── BookClub.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Features:
+1. User Authentication
+   - Login
+   - Signup
+   - Password encryption
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Book Clubs
+   - View clubs by city
+   - Filter by genre
+   - Join existing clubs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Locations
+   - Multiple city support
+   - City-specific club listings
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+API Endpoints:
+1. Users
+   - POST /api/users/register - Register new user 
